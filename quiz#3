@@ -1,0 +1,17 @@
+section .text
+    global _start
+
+_start:
+        mov ecx, 1
+        mov eax, 1
+
+multiply_loop:
+        imul eax, ecx
+        inc ecx
+        cmp ecx, 6
+        jg exit
+        jmp multiply_loop
+
+exit:
+        mov eax, 1
+        int 0x80
