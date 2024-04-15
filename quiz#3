@@ -8,10 +8,13 @@ _start:
 multiply_loop:
         imul eax, ecx
         inc ecx
-        cmp ecx, 6
+        cmp ecx, [variable]
         jg exit
         jmp multiply_loop
 
 exit:
         mov eax, 1
         int 0x80
+
+section .data
+        variable DD 6
